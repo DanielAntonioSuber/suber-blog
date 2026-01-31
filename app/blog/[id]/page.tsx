@@ -2,6 +2,8 @@ import { getPost } from '../../actions'
 import styles from '../../home.module.css'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 // Correctly typing params for Next.js 16 dynamic routes
 export default async function BlogPostPage({ params }: { params: Promise<{ id: string }> }) {
@@ -38,13 +40,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
                 </header>
 
                 <div className="prose prose-invert prose-lg max-w-none text-slate-300 leading-relaxed">
-                    {/* 
-            For now, we render plain text with simple newlines. 
-            In the future, we can change this to <MDXRemote /> 
-          */}
-                    {post.content.split('\n').map((line, i) => (
-                        <p key={i} className="mb-4">{line}</p>
-                    ))}
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {post.content}
+                    </ReactMarkdown>
                 </div>
             </article>
         </div>

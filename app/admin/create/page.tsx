@@ -41,7 +41,19 @@ export default function CreatePostPage() {
                     </div>
 
                     <div>
-                        <label htmlFor="content" className="block text-sm font-medium text-slate-300 mb-2">Contenido (Markdown soportado pronto)</label>
+                        <div className="flex justify-between items-center mb-2">
+                            <label htmlFor="content" className="block text-sm font-medium text-slate-300">Contenido (Markdown soportado)</label>
+                            <span className="text-xs text-slate-500">Soporta imágenes, listas, y más</span>
+                        </div>
+                        <div className="bg-slate-900/50 border border-slate-700/50 rounded p-3 mb-3 text-xs text-slate-400">
+                            <p className="font-semibold mb-1 text-slate-300">Guía rápida:</p>
+                            <ul className="grid grid-cols-2 gap-2">
+                                <li><code># Título</code>, <code>## Subtítulo</code></li>
+                                <li><code>**Negrita**</code>, <code>*Cursiva*</code></li>
+                                <li><code>- Lista</code>, <code>1. Numerada</code></li>
+                                <li><code>![Alt](url)</code> para imágenes</li>
+                            </ul>
+                        </div>
                         <textarea
                             name="content"
                             required
