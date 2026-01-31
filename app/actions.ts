@@ -35,3 +35,27 @@ export async function getPost(id: number) {
     const result = await db.select().from(posts).where(eq(posts.id, id))
     return result[0]
 }
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function submitContactForm(prevState: any, formData: FormData) {
+    const name = formData.get('name') as string
+    const email = formData.get('email') as string
+    const message = formData.get('message') as string
+
+    // Validate fields
+    if (!name || !email || !message) {
+        return { success: false, message: 'Todos los campos son obligatorios.' }
+    }
+
+    // Simulate sending email (Log to console)
+    console.log('--- Nuevo Mensaje de Contacto ---')
+    console.log(`Nombre: ${name}`)
+    console.log(`Email: ${email}`)
+    console.log(`Mensaje: ${message}`)
+    console.log('---------------------------------')
+
+    // Simulate delay
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    return { success: true, message: '¡Gracias! Tu mensaje ha sido "enviado".' }
+}

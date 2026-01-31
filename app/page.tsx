@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import Image from 'next/image'
 import styles from './home.module.css'
+import ContactForm from './components/ContactForm'
 
 export default function Home(): ReactElement {
   return (
@@ -81,6 +82,9 @@ export default function Home(): ReactElement {
           Soy una persona resiliente, enfocada a objetivos
         </p>
       </section>
+
+      {/* Contact Section */}
+      <ContactForm />
     </div>
   )
 }
